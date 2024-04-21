@@ -1,7 +1,41 @@
-const barnCats = alert("let's do this!!")
-console.log(barnCats);
+// let catArray = ['Whiskers', 'Tom', 'Salem', 'Puss in Boots', 'Binx', 'Sassy'];
+// let catCurrentAges = ["4", "5", "2", "7", "3", "1"];
+// let adoptedYear = ["2022", "2021", "2024", "2019", "2022", "2024"];
+// James : I added line 2,3 but I noticed I better make them objects instead
 
-let catArray = ['Whiskers', 'Tom', 'Salem', 'Puss in Boots', 'Binx', 'Sassy'];
+let cats = [
+    {
+        name: "Whiskers",
+        age: 4,
+        adoptedYear: 2022
+    },
+    {
+        name: "Tom",
+        age: 5,
+        adoptedYear: 2021
+    },
+    {
+        name: "Salem",
+        age: 2,
+        adoptedYear: 2024
+    },
+    {
+        name: "Puss in Boots",
+        age: 7,
+        adoptedYear: 2019
+    },
+    {
+        name: "Binx",
+        age: 3,
+        adoptedYear: 2022
+    },
+    {
+        name: "Sassy",
+        age: 1,
+        adoptedYear: 2024
+    }
+];
+
 const catGallery = document.getElementById("cat-gallery");
 
 function getCats() {
@@ -17,7 +51,7 @@ function getCats() {
 
         const catName = document.createElement("h3");
         catName.classList.add('cat-name');
-        catName.textContent = catArray[i];
+        catName.textContent = cats[i].name;
         catCard.appendChild(catName);
 
         const catShelter = document.createElement("p");
@@ -25,7 +59,28 @@ function getCats() {
         catShelter.textContent = "Local Shelter";
         catCard.appendChild(catShelter);
 
+        const catAge = document.createElement("p");
+        catAge.classList.add('cat-age');
+        catAge.textContent = "Cat Age: " + cats[i].age + " year-old";
+        catCard.appendChild(catAge);
+
+        function ageSinceAdoption(adoptedYear) {
+            const currentYear = new Date().getFullYear();
+            return currentYear - adoptedYear;
+        }
+        //James : For those who do not know about this method (both built-in Javascript)
+        //new Date(): to show current local date and time  
+        //getFullYear(): to show current year only 
+
+        const shelterDuration =  document.createElement("p");
+        shelterDuration.classList.add('shelter-duration');
+        shelterDuration.textContent = 
+            "Time Spend in Shelter:" + 
+            ageSinceAdoption(cats[i].adoptedYear) + 
+            " years";
+        catCard.appendChild(shelterDuration);
+
 
         i++;
-    } while (i< catArray.length);
+    } while (i< cats.length);
 }
