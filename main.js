@@ -7,32 +7,38 @@ let cats = [
     {
         name: "Whiskers",
         age: 4,
-        adoptedYear: 2022
+        adoptedYear: 2022,
+        shelterName: "Animal Rescue",
     },
     {
         name: "Tom",
         age: 5,
-        adoptedYear: 2021
+        adoptedYear: 2021,
+        shelterName:"Precious Paws",
     },
     {
         name: "Salem",
         age: 2,
-        adoptedYear: 2024
+        adoptedYear: 2024,
+        shelterName:"Friends For Life",
     },
     {
         name: "Puss in Boots",
         age: 7,
-        adoptedYear: 2019
+        adoptedYear: 2019,
+        shelterName: "Special Pals",
     },
     {
         name: "Binx",
         age: 3,
-        adoptedYear: 2022
+        adoptedYear: 2022,
+        shelterName: "Whisker Land",
     },
     {
         name: "Sassy",
         age: 1,
-        adoptedYear: 2024
+        adoptedYear: 2024,
+        shelterName: "Pet Connect",
     }
 ];
 
@@ -56,7 +62,7 @@ function getCats() {
 
         const catShelter = document.createElement("p");
         catShelter.classList.add('cat-shelter');
-        catShelter.textContent = "Local Shelter";
+        catShelter.textContent = cats[i].shelterName;
         catCard.appendChild(catShelter);
 
         const catAge = document.createElement("p");
