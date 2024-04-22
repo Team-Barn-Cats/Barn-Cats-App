@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Happy+Monkey&family=Kavoon&family=Nunito&display=swap');
+
 .gallery {
     display: flex;
     flex-direction: row;
@@ -8,7 +10,7 @@
 }
 .card {
     width: 24vw;
-    background-color: whitesmoke;
+    background-color: #EBD3BB; /*was "whitesmoke" */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,5 +21,34 @@
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background-color: lightgrey;
+    background-color: #684440; /*was "lightgrey" */
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: #FFF8ED;
+}
+
+h1 {
+    font-family: "Happy Monkey", "Fredoka", "Kavoon", sans-serif;
+}
+
+button {
+    font-family: "Nunito", sans-serif;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #E0E5F1;
+}
+
+nav {
+    background-color: #bd4c48;
+    margin-bottom: 1em;
+}
+
+a {
+    color: #837B82;
+}
+
+a:hover {
+    color: #D56942;
 }
