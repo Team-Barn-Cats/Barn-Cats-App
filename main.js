@@ -81,7 +81,7 @@ function getCats() {
         const shelterDuration =  document.createElement("p");
         shelterDuration.classList.add('shelter-duration');
         shelterDuration.textContent = 
-            "Time Spend in Shelter:" + 
+            "Time Spent in Shelter:" + 
             ageSinceAdoption(cats[i].adoptedYear) + 
             " years";
         catCard.appendChild(shelterDuration);
