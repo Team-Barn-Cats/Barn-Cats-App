@@ -3,6 +3,7 @@
 // let adoptedYear = ["2022", "2021", "2024", "2019", "2022", "2024"];
 // James : I added line 2,3 but I noticed I better make them objects instead
 
+// Katya : This array can be replaced with the fetch function
 let cats = [
     {
         name: "Whiskers",
@@ -45,25 +46,32 @@ let cats = [
 const catGallery = document.getElementById("cat-gallery");
 
 function getCats() {
+    //Todo: Replace cats with the name of the pokemon array.
     for (let pokemon of cats) {
+
+        // This creates a card div for each cat
         const catCard = document.createElement('div');
         catCard.classList.add("card");
         catGallery.appendChild(catCard);
 
+        // This creates a round image div to house the image
         const catImg = document.createElement('div');
         catImg.classList.add('cat-img');
         catCard.appendChild(catImg);
 
+        // Cat Name
         const catName = document.createElement("h3");
         catName.classList.add('cat-name');
         catName.textContent = pokemon.name;
         catCard.appendChild(catName);
 
+        // Shelter Name
         const catShelter = document.createElement("p");
         catShelter.classList.add('cat-shelter');
         catShelter.textContent = pokemon.shelterName;
         catCard.appendChild(catShelter);
 
+        // Cat age
         const catAge = document.createElement("p");
         catAge.classList.add('cat-age');
         catAge.textContent = "Cat Age: " + pokemon.age + " year-old";
