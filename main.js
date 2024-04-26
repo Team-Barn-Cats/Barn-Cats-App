@@ -45,8 +45,7 @@ let cats = [
 const catGallery = document.getElementById("cat-gallery");
 
 function getCats() {
-    let i = 0;
-    do {
+    for (let pokemon of cats) {
         const catCard = document.createElement('div');
         catCard.classList.add("card");
         catGallery.appendChild(catCard);
@@ -57,17 +56,17 @@ function getCats() {
 
         const catName = document.createElement("h3");
         catName.classList.add('cat-name');
-        catName.textContent = cats[i].name;
+        catName.textContent = pokemon.name;
         catCard.appendChild(catName);
 
         const catShelter = document.createElement("p");
         catShelter.classList.add('cat-shelter');
-        catShelter.textContent = cats[i].shelterName;
+        catShelter.textContent = pokemon.shelterName;
         catCard.appendChild(catShelter);
 
         const catAge = document.createElement("p");
         catAge.classList.add('cat-age');
-        catAge.textContent = "Cat Age: " + cats[i].age + " year-old";
+        catAge.textContent = "Cat Age: " + pokemon.age + " year-old";
         catCard.appendChild(catAge);
 
         function ageSinceAdoption(adoptedYear) {
@@ -82,11 +81,8 @@ function getCats() {
         shelterDuration.classList.add('shelter-duration');
         shelterDuration.textContent = 
             "Time Spent in Shelter:" + 
-            ageSinceAdoption(cats[i].adoptedYear) + 
+            ageSinceAdoption(pokemon.adoptedYear) + 
             " years";
         catCard.appendChild(shelterDuration);
-
-
-        i++;
-    } while (i< cats.length);
+    }
 }
