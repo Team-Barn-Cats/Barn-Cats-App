@@ -41,8 +41,9 @@
         <input type="text" placeholder="zipcode">
         <button type="button" onClick="getCats()">Find Cats</button>
     </form>
-    <section id="cat-gallery" class="gallery">
-
+    <section class="gallery container"><!--Katya: Added bootstrap utility classes-->
+        <div id="cat-gallery" class="row row-cols-1 row-cols-md-3 align-items-stretch g-5 py-5">
+        </div> 
     </section>
 
     <p class="text-center">What makes a good home for a Barn Cat? Learn more <a href="info.html">here!</a></p>

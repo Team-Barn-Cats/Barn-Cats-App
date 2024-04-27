@@ -49,31 +49,37 @@ function getCats() {
     //Todo: Replace cats with the name of the pokemon array.
     for (let pokemon of cats) {
 
+        // This creates a bootstrap column for each card
+        const catCol = document.createElement('div');
+        catCol.classList.add('col');
+        catGallery.appendChild(catCol);
+
         // This creates a card div for each cat
         const catCard = document.createElement('div');
-        catCard.classList.add("card");
-        catGallery.appendChild(catCard);
+        catCard.classList.add('card', 'rounded-5');
+        catCol.appendChild(catCard);
 
         // This creates a round image div to house the image
-        const catImg = document.createElement('div');
-        catImg.classList.add('cat-img');
+        const catImg = document.createElement('img');
+        catImg.src = "https://picsum.photos/200";
+        catImg.classList.add('cat-img', 'card-img-top', 'rounded-circle');
         catCard.appendChild(catImg);
 
         // Cat Name
         const catName = document.createElement("h3");
-        catName.classList.add('cat-name');
+        catName.classList.add('cat-name', 'card-title');
         catName.textContent = pokemon.name;
         catCard.appendChild(catName);
 
         // Shelter Name
         const catShelter = document.createElement("p");
-        catShelter.classList.add('cat-shelter');
+        catShelter.classList.add('cat-shelter', 'card-text');
         catShelter.textContent = pokemon.shelterName;
         catCard.appendChild(catShelter);
 
         // Cat age
         const catAge = document.createElement("p");
-        catAge.classList.add('cat-age');
+        catAge.classList.add('cat-age', 'card-text');
         catAge.textContent = "Cat Age: " + pokemon.age + " year-old";
         catCard.appendChild(catAge);
 
@@ -86,7 +92,7 @@ function getCats() {
         //getFullYear(): to show current year only 
 
         const shelterDuration =  document.createElement("p");
-        shelterDuration.classList.add('shelter-duration');
+        shelterDuration.classList.add('shelter-duration', 'card-text');
         shelterDuration.textContent = 
             "Time Spent in Shelter:" + 
             ageSinceAdoption(pokemon.adoptedYear) + 
