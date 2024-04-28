@@ -1,3 +1,39 @@
+//I thought about putting this in its own JSON file -- we can do if anyone thinks that's better practice, but for simplicity I've left it here for now
+const jsonPokemonArray = []; 
+
+//function fetches "cat-like" pokemon from PokeAPI by ID 
+async function fetchPokemon() {
+    //hardcoded list of ID's
+    const idArray = [52, 53, 150, 151, 196, 197, 243, 300, 301, 403, 404, 405, 431, 432, 470, 471, 509, 510, 667, 668, 677, 678, 700, 725, 726, 727, 807];
+    //loops through each of the ID's and attempts to both retrieve the data from PokeAPI and push it to the jsonPokemonArray
+    for (let pokemonId of idArray) {
+      let thatPokemon = String(pokemonId);
+      //the API works by changing the ID at the end of this URL; we could use the new URL functionality in JS but I thought this simpler
+      let newUrl = "https://pokeapi.co/api/v2/pokemon/" + thatPokemon; 
+      try {
+        //fetches data by ID
+        let response = await fetch(newUrl); 
+        let pokemon = await response.json(); 
+        pokemon = JSON.stringify(pokemon);
+        jsonPokemonArray.push(pokemon);
+      } catch (error) {
+        console.error("There was an error!", error); 
+      }
+    }
+  }
+
+//INFO: the comment below will outline which attributes of PokeAPI response (stored in jsonPokemonArray) to leverage to populate UI
+//INFO: it's important to note that after the fetchPokemon function runs that jsonPokemonArray is in STRING format and will need to be parsed
+/* To access pokemon attributes:
+Barncat Name: pokemon.name
+Barncat Shelter: TODO -- will be randomly generated
+Barncat Age: TODO -- will be randomly generated
+Barncat Time in Shelter: pokemon.age
+Barncat Zipcode: TODO -- will be randomly generated
+Barncat Image: pokemon.sprites.front_default -- this returns a URL!! Which we can then use to display the image
+PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon -- scroll down the Pokemon Endpoint or use left nav
+*/
+
 // let catArray = ['Whiskers', 'Tom', 'Salem', 'Puss in Boots', 'Binx', 'Sassy'];
 // let catCurrentAges = ["4", "5", "2", "7", "3", "1"];
 // let adoptedYear = ["2022", "2021", "2024", "2019", "2022", "2024"];
