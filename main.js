@@ -28,7 +28,7 @@ async function fetchPokemon() {
 Barncat Name: pokemon.name
 Barncat Shelter: TODO -- will be randomly generated
 Barncat Age: TODO -- will be randomly generated
-Barncat Time in Shelter: pokemon.age
+Barncat Time in Shelter: pokemon.height
 Barncat Zipcode: TODO -- will be randomly generated
 Barncat Image: pokemon.sprites.front_default -- this returns a URL!! Which we can then use to display the image
 PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon -- scroll down the Pokemon Endpoint or use left nav
