@@ -1,37 +1,65 @@
-//I thought about putting this in its own JSON file -- we can do if anyone thinks that's better practice, but for simplicity I've left it here for now
+//array to hold Pokemon JSON Objects
 const jsonPokemonArray = []; 
+//array to hold the in-scope ("cat-like") Pokemon's IDs
+const idArray = [52, 53, 150, 151, 196, 197, 243, 300, 301, 403, 404, 405, 431, 432, 470, 471, 509, 510, 667, 668, 677, 678, 700, 725, 726, 727, 807];
 
-//function fetches "cat-like" pokemon from PokeAPI by ID 
+//function fetches "cat-like" pokemon from PokeAPI by ID
 async function fetchPokemon() {
-    //hardcoded list of ID's
-    const idArray = [52, 53, 150, 151, 196, 197, 243, 300, 301, 403, 404, 405, 431, 432, 470, 471, 509, 510, 667, 668, 677, 678, 700, 725, 726, 727, 807];
     //loops through each of the ID's and attempts to both retrieve the data from PokeAPI and push it to the jsonPokemonArray
     for (let pokemonId of idArray) {
       let thatPokemon = String(pokemonId);
-      //the API works by changing the ID at the end of this URL; we could use the new URL functionality in JS but I thought this simpler
+      //the API works by changing the ID at the end of this URL
       let newUrl = "https://pokeapi.co/api/v2/pokemon/" + thatPokemon; 
       try {
         //fetches data by ID
         let response = await fetch(newUrl); 
         let pokemon = await response.json(); 
-        pokemon = JSON.stringify(pokemon);
         jsonPokemonArray.push(pokemon);
       } catch (error) {
-        console.error("There was an error!", error); 
+        console.error("Error in fetchPokemon", error); 
       }
     }
   }
 
-//INFO: the comment below will outline which attributes of PokeAPI response (stored in jsonPokemonArray) to leverage to populate UI
-//INFO: it's important to note that after the fetchPokemon function runs that jsonPokemonArray is in STRING format and will need to be parsed
-/* To access pokemon attributes:
-Barncat Name: pokemon.name
-Barncat Shelter: TODO -- will be randomly generated
-Barncat Age: TODO -- will be randomly generated
-Barncat Time in Shelter: pokemon.height
-Barncat Zipcode: TODO -- will be randomly generated
-Barncat Image: pokemon.sprites.front_default -- this returns a URL!! Which we can then use to display the image
-PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon -- scroll down the Pokemon Endpoint or use left nav
+//Adds additional attributes to the Pokemon stored in jsonPokemonArray 
+function addZipShelterAge() {
+  for (let pokemon of jsonPokemonArray) {
+    if (jsonPokemonArray.indexOf(pokemon) >= 0 && jsonPokemonArray.indexOf(pokemon) <= 9) {
+      pokemon.age = pokemon.height + 2;
+      pokemon.shelter = "Animal Rescue";
+      pokemon.zipcode = "87154";
+    } else if (jsonPokemonArray.indexOf(pokemon) >= 10 && jsonPokemonArray.indexOf(pokemon) <= 18) {
+      pokemon.age = pokemon.height + 2;
+      pokemon.shelter = "Precious Paws";
+      pokemon.zipcode = "87101";
+    } else if (jsonPokemonArray.indexOf(pokemon) >= 19 && jsonPokemonArray.indexOf(pokemon) <= 26) {
+      pokemon.age = pokemon.height + 2;
+      pokemon.shelter = "Friends for Life";
+      pokemon.zipcode = "87144";
+    }
+   }
+  }
+
+//combines the API data (fetchPokemon) with the Zipcode, Shelter Name, and Age (addZipShelterAge)
+async function getPokemon() {
+  try { 
+  let get = await fetchPokemon();
+  addZipShelterAge(); 
+  console.log(jsonPokemonArray);  
+  } catch (error) {
+    console.error("Error in getPokemon", error)
+  }
+}
+
+getPokemon();
+/* INFO: this comment will outline which attributes of PokeAPI response (stored in jsonPokemonArray) to access pokemon attributes:
+Name: .name
+Shelter: .shelter
+Age: .age
+Time in Shelter: .height
+Zipcode: .zipcode
+Image: .sprites.front_default -- this returns a URL which we can then use as a src to display the image 
+PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon
 */
 
 // let catArray = ['Whiskers', 'Tom', 'Salem', 'Puss in Boots', 'Binx', 'Sassy'];
