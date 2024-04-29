@@ -23,19 +23,19 @@ async function fetchPokemon() {
 
 //Adds additional attributes to the Pokemon stored in jsonPokemonArray 
 function addZipShelterAge() {
-  for (let pokemon in jsonPokemonArray) {
-    if (pokemon >= 0 && pokemon <= 9) {
-      jsonPokemonArray[pokemon].age = jsonPokemonArray[pokemon].height + 2;
-      jsonPokemonArray[pokemon].shelter = "Animal Rescue";
-      jsonPokemonArray[pokemon].zipcode = "87154";
-    } if (pokemon >= 10 && pokemon <= 18) {
-      jsonPokemonArray[pokemon].age = jsonPokemonArray[pokemon].height + 2;
-      jsonPokemonArray[pokemon].shelter = "Precious Paws";
-      jsonPokemonArray[pokemon].zipcode = "87101";
-    } if (pokemon >= 19 && pokemon <= 26) {
-      jsonPokemonArray[pokemon].age = jsonPokemonArray[pokemon].height + 2;
-      jsonPokemonArray[pokemon].shelter = "Friends for Life";
-      jsonPokemonArray[pokemon].zipcode = "87144";
+  for (let pokemon of jsonPokemonArray) {
+    if (jsonPokemonArray.indexOf(pokemon) >= 0 && jsonPokemonArray.indexOf(pokemon) <= 9) {
+      pokemon.age = pokemon.height + 2;
+      pokemon.shelter = "Animal Rescue";
+      pokemon.zipcode = "87154";
+    } else if (jsonPokemonArray.indexOf(pokemon) >= 10 && jsonPokemonArray.indexOf(pokemon) <= 18) {
+      pokemon.age = pokemon.height + 2;
+      pokemon.shelter = "Precious Paws";
+      pokemon.zipcode = "87101";
+    } else if (jsonPokemonArray.indexOf(pokemon) >= 19 && jsonPokemonArray.indexOf(pokemon) <= 26) {
+      pokemon.age = pokemon.height + 2;
+      pokemon.shelter = "Friends for Life";
+      pokemon.zipcode = "87144";
     }
    }
   }
@@ -45,7 +45,7 @@ async function getPokemon() {
   try { 
   let get = await fetchPokemon();
   addZipShelterAge(); 
-  //console.log(jsonPokemonArray);  
+  console.log(jsonPokemonArray);  
   } catch (error) {
     console.error("Error in getPokemon", error)
   }
