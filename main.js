@@ -68,50 +68,12 @@ PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon
 // James : I added line 2,3 but I noticed I better make them objects instead
 
 // Katya : This array can be replaced with the fetch function
-let cats = [
-    {
-        name: "Whiskers",
-        age: 4,
-        adoptedYear: 2022,
-        shelterName: "Animal Rescue",
-    },
-    {
-        name: "Tom",
-        age: 5,
-        adoptedYear: 2021,
-        shelterName:"Precious Paws",
-    },
-    {
-        name: "Salem",
-        age: 2,
-        adoptedYear: 2024,
-        shelterName:"Friends For Life",
-    },
-    {
-        name: "Puss in Boots",
-        age: 7,
-        adoptedYear: 2019,
-        shelterName: "Special Pals",
-    },
-    {
-        name: "Binx",
-        age: 3,
-        adoptedYear: 2022,
-        shelterName: "Whisker Land",
-    },
-    {
-        name: "Sassy",
-        age: 1,
-        adoptedYear: 2024,
-        shelterName: "Pet Connect",
-    }
-];
 
 const catGallery = document.getElementById("cat-gallery");
 
 function getCats() {
     //Todo: Replace cats with the name of the pokemon array.
-    for (let pokemon of cats) {
+    for (let pokemon of jsonPokemonArray) {
 
         // This creates a bootstrap column for each card
         const catCol = document.createElement('div');
@@ -125,7 +87,7 @@ function getCats() {
 
         // This creates a round image div to house the image
         const catImg = document.createElement('img');
-        catImg.src = "https://picsum.photos/200";
+        catImg.src = pokemon.sprites.front_default;
         catImg.classList.add('cat-img', 'card-img-top', 'rounded-circle');
         catCard.appendChild(catImg);
 
@@ -138,7 +100,7 @@ function getCats() {
         // Shelter Name
         const catShelter = document.createElement("p");
         catShelter.classList.add('cat-shelter', 'card-text');
-        catShelter.textContent = pokemon.shelterName;
+        catShelter.textContent = pokemon.shelter;
         catCard.appendChild(catShelter);
 
         // Cat age
@@ -159,7 +121,7 @@ function getCats() {
         shelterDuration.classList.add('shelter-duration', 'card-text');
         shelterDuration.textContent = 
             "Time Spent in Shelter:" + 
-            ageSinceAdoption(pokemon.adoptedYear) + 
+            ageSinceAdoption(pokemon.height) + 
             " years";
         catCard.appendChild(shelterDuration);
     }
