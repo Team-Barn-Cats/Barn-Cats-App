@@ -72,9 +72,9 @@ PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon
 const catGallery = document.getElementById("cat-gallery");
 
 function getCats() {
-    //Todo: Replace cats with the name of the pokemon array.
+    
     for (let pokemon of jsonPokemonArray) {
-
+      if (pokemon.zipcode === document.getElementById('user-zipcode').value) {
         // This creates a bootstrap column for each card
         const catCol = document.createElement('div');
         catCol.classList.add('col');
@@ -106,13 +106,15 @@ function getCats() {
         // Cat age
         const catAge = document.createElement("p");
         catAge.classList.add('cat-age', 'card-text');
-        catAge.textContent = "Cat Age: " + pokemon.age + " year-old";
+        catAge.textContent = "Age: " + pokemon.age + " year-old";
         catCard.appendChild(catAge);
 
-        function ageSinceAdoption(adoptedYear) {
+        // Katya : I turned off the ageSinceAdoption function since our json returns years instead of a date.
+        
+        /* function ageSinceAdoption(adoptedYear) {
             const currentYear = new Date().getFullYear();
             return currentYear - adoptedYear;
-        }
+        } */
         //James : For those who do not know about this method (both built-in Javascript)
         //new Date(): to show current local date and time  
         //getFullYear(): to show current year only 
@@ -120,9 +122,10 @@ function getCats() {
         const shelterDuration =  document.createElement("p");
         shelterDuration.classList.add('shelter-duration', 'card-text');
         shelterDuration.textContent = 
-            "Time Spent in Shelter:" + 
-            ageSinceAdoption(pokemon.height) + 
+            "Time Spent in Shelter: " + 
+            pokemon.height + 
             " years";
         catCard.appendChild(shelterDuration);
     }
+  }
 }
