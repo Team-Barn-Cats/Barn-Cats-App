@@ -36,6 +36,7 @@ function addZipShelterAge() {
       pokemon.age = pokemon.height + 2;
       pokemon.shelter = "Friends for Life";
       pokemon.zipcode = "87144";
+
     }
    }
   }
@@ -72,9 +73,13 @@ PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon
 const catGallery = document.getElementById("cat-gallery");
 
 function getCats() {
+    //noticed that cards duplicated and accumulated when getCats() implemented
+    //solution : added feature 'deleting previous cards when getCats() implemented' 
+    const userZipcode = document.getElementById('user-zipcode').value;
+    catGallery.innerHTML = '';
     
     for (let pokemon of jsonPokemonArray) {
-      if (pokemon.zipcode === document.getElementById('user-zipcode').value) {
+      if (pokemon.zipcode === userZipcode) {
         // This creates a bootstrap column for each card
         const catCol = document.createElement('div');
         catCol.classList.add('col');
