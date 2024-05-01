@@ -3,7 +3,7 @@
 
   
 
-Barn Cats App is a web application that provides information about cat adoption. This application offers valuable resources to ensure the best care for your feline friend.
+**Barn Cats App** is a web application that provides information about cat adoption. This application offers valuable resources to ensure the best care for your feline friend.
 <br><br>
   
   
@@ -11,17 +11,15 @@ Barn Cats App is a web application that provides information about cat adoption.
 
 ### 1. Home
 
-The home page displays an introduction to Barn Cats App and key content. Users can review the main content on the homepage and navigate to desired sections.
+The **home** page displays an introduction to Barn Cats App and key content. Users can review the main content on the homepage and navigate to desired sections.
 
 ### 2. About
 
 This page provides an overview of Barn Cats App and project information. Users can gain insights into the application and understand its background.
 
-  
-
 ### 3. Education Resources
 
-Provides educational resources about cat adoption. Users can find informative content for adopting a cat.
+Provides **educational resources** about cat adoption. Users can find informative content for adopting a cat.
 
 <br><br>[Back to Top](#top)<br><br><br><br>
 
@@ -35,7 +33,11 @@ Provides educational resources about cat adoption. Users can find informative co
 
 `3. Visit the Education Resources page to find educational materials about cat adoption.`
 
-<br><br>[Back to Top](#top)<br><br><br><br>
+`4. If you want to find potential barn cats, pleaset follow the screenshot below.`
+
+![screenshot](/images/screenshot.png)
+
+[Back to Top](#top)<br><br><br><br>
  
  
 ## Tech Stack
