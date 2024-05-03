@@ -68,7 +68,28 @@ PokeAPI Pokemon Endpoint Docs @ https://pokeapi.co/docs/v2#pokemon
 // let adoptedYear = ["2022", "2021", "2024", "2019", "2022", "2024"];
 // James : I added line 2,3 but I noticed I better make them objects instead
 
-// Katya : This array can be replaced with the fetch function
+// This function checks to see if there are any cats matching the zipcode.
+function searchCats() {
+  const userZipcode = document.getElementById('user-zipcode').value;
+  catGallery.innerHTML = '';
+  
+  for (let cat of jsonPokemonArray) {
+    if (cat.zipcode === userZipcode) {
+      console.log(userZipcode);
+      console.log(cat.zipcode);
+      getCats();
+      return;
+    }
+  }
+  const message = document.getElementById('message');
+  // This creates a message if no cats match the zipcode.
+  const noCats = document.createElement("h3");
+  noCats.textContent = 'Sorry, there are no barn cats in your area listed with us.';
+  message.appendChild(noCats);
+  const noCatsOptions = document.createElement("p");
+  noCatsOptions.textContent = 'Try searching nearby zipcodes, or contact your local Humane Society to inquire about local barn cat programs.';
+  message.appendChild(noCatsOptions);
+}
 
 const catGallery = document.getElementById("cat-gallery");
 
@@ -76,7 +97,6 @@ function getCats() {
     //noticed that cards duplicated and accumulated when getCats() implemented
     //solution : added feature 'deleting previous cards when getCats() implemented' 
     const userZipcode = document.getElementById('user-zipcode').value;
-    catGallery.innerHTML = '';
     
     for (let pokemon of jsonPokemonArray) {
       if (pokemon.zipcode === userZipcode) {

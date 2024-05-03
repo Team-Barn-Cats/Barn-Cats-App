@@ -46,12 +46,15 @@
             <option value="87101">87101</option>
             <option value="87144">87144</option>
             <option value="87154">87154</option>
+            <option value="80004">80008</option>
         </select>
-        <button type="button" onclick="getCats()">Search</button>
+        <button type="button" onclick="searchCats()">Search</button>
         <!-- <input id="user-zipcode" type="text" placeholder="zipcode">
         <button type="button" onClick="getCats()">Find Cats</button> -->
     </form>
     <section class="gallery container"><!--Katya: Added bootstrap utility classes-->
+        <div id="message" class="row mt-5 text-center">
+        </div>
         <div id="cat-gallery" class="row row-cols-1 row-cols-md-3 align-items-stretch g-5 py-5">
         </div>
     </section>
