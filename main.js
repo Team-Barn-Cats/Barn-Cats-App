@@ -110,9 +110,10 @@ function getCats() {
         catCard.classList.add('card', 'rounded-5');
         catCol.appendChild(catCard);
 
-        // This creates a round image div to house the image
+        // Cat Image
         const catImg = document.createElement('img');
         catImg.src = pokemon.sprites.front_default;
+        catImg.alt = 'a potential barn cat';
         catImg.classList.add('cat-img', 'card-img-top', 'rounded-circle');
         catCard.appendChild(catImg);
 
