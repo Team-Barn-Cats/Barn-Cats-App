@@ -20,13 +20,13 @@
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="https://cdn-icons-png.flaticon.com/512/186/186125.png"
-                    height="40" /></a>
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#portNav">
+                    height="40" alt="barn icon"/></a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#portNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="portNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="info.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="education.html">Education Resources</a></li>
                 </ul>
@@ -39,9 +39,9 @@
     <h2 class="text-center">Saving feline lives by fulfilling your pest control needs.</h2>
 
     <form class="text-center" id="search">
-        <label for="zip-code">Select your zip code to find potential barn cats:</label>
+        <label id="zipcode-label" for="zip-code">Select your zip code to find potential barn cats:</label>
         <!-- zipcode dropdown feature -->
-        <select id="user-zipcode">
+        <select id="user-zipcode" aria-labelledby="zipcode-label">
             <option>Zipcode</option>
             <option value="87101">87101</option>
             <option value="87144">87144</option>
